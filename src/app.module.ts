@@ -12,7 +12,9 @@ import { PostsModule } from './posts/posts.module';
 import { Post } from './posts/posts.model';
 import { FilesModule } from './files/files.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { TodosModule } from './todos/todos.module';
 import * as path from 'path';
+import { Todo } from './todos/todos.model';
 
 @Module({
   controllers: [],
@@ -31,7 +33,7 @@ import * as path from 'path';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, Role, UserRoles, Post],
+      models: [User, Role, UserRoles, Post, Todo],
       autoLoadModels: true,
     }),
     UsersModule,
@@ -39,6 +41,7 @@ import * as path from 'path';
     AuthModule,
     PostsModule,
     FilesModule,
+    TodosModule,
   ],
 })
 export class AppModule {}

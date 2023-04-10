@@ -30,4 +30,21 @@ export class TodosService {
     await this.todoRepository.destroy({ where: { id: todoId } });
     return `Todo with id ${todoId} was deleted successfully`;
   }
+
+  async updateTodoCompletionById(todoId: number) {
+    const requestedTodo = await this.todoRepository.findByPk(todoId);
+
+    if (!requestedTodo) {
+      throw new HttpException('Задача не найдена', HttpStatus.BAD_REQUEST);
+    }
+
+    const newCompletionValue = !requestedTodo.isDone;
+
+    await this.todoRepository.update(
+      { isDone: newCompletionValue },
+      {
+        where: { id: todoId },
+      },
+    );
+  }
 }

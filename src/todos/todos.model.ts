@@ -21,7 +21,7 @@ export class Todo extends Model<Todo, TodoCreationAttrs> {
     autoIncrement: true,
     primaryKey: true,
   })
-  id: string;
+  id: number;
 
   @Column({
     type: DataType.BOOLEAN,

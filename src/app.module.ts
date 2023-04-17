@@ -15,10 +15,14 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { TodosModule } from './todos/todos.module';
 import * as path from 'path';
 import { Todo } from './todos/todos.model';
+import { ChatGateway } from './chat/chat.gateway';
+import { ChatController } from './chat/chat.controller';
+import { ChatModule } from './chat/chat.module';
+import { Chat } from './chat/chat.model';
 
 @Module({
-  controllers: [],
-  providers: [],
+  controllers: [ChatController],
+  providers: [ChatGateway],
   imports: [
     ConfigModule.forRoot({
       envFilePath: `.${process.env.NODE_ENV}.env`,
@@ -33,7 +37,7 @@ import { Todo } from './todos/todos.model';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, Role, UserRoles, Post, Todo],
+      models: [User, Role, UserRoles, Post, Todo, Chat],
       autoLoadModels: true,
     }),
     UsersModule,
@@ -42,6 +46,7 @@ import { Todo } from './todos/todos.model';
     PostsModule,
     FilesModule,
     TodosModule,
+    ChatModule,
   ],
 })
 export class AppModule {}

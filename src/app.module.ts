@@ -8,9 +8,6 @@ import { RolesModule } from './roles/roles.module';
 import { Role } from './roles/roles.model';
 import { UserRoles } from './roles/user-roles.model';
 import { AuthModule } from './auth/auth.module';
-import { PostsModule } from './posts/posts.module';
-import { Post } from './posts/posts.model';
-import { FilesModule } from './files/files.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { TodosModule } from './todos/todos.module';
 import * as path from 'path';
@@ -37,14 +34,12 @@ import { Chat } from './chat/chat.model';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [User, Role, UserRoles, Post, Todo, Chat],
+      models: [User, Role, UserRoles, Todo, Chat],
       autoLoadModels: true,
     }),
     UsersModule,
     RolesModule,
     AuthModule,
-    PostsModule,
-    FilesModule,
     TodosModule,
     ChatModule,
   ],

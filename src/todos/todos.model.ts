@@ -53,7 +53,7 @@ export class Todo extends Model<Todo, TodoCreationAttrs> {
     description: 'дедлайн по задаче в unix timestamp',
   })
   @Column({
-    type: DataType.NUMBER,
+    type: DataType.INTEGER,
     allowNull: false,
   })
   deadline: number;

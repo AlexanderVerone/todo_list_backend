@@ -1,23 +1,20 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Todo } from './todos.model';
-import { CreateTodoDto } from './dto/create-todo.dto';
+import { CreateTodoDto } from './dto/createTodo.dto';
 
 @Injectable()
 export class TodosService {
   constructor(@InjectModel(Todo) private todoRepository: typeof Todo) {}
 
   async create(dto: CreateTodoDto) {
-    const todo = await this.todoRepository.create(dto);
-    return todo;
+    return await this.todoRepository.create(dto);
   }
 
   async getTodosByUserId(userId: number) {
-    const todoList = await this.todoRepository.findAll({
+    return await this.todoRepository.findAll({
       where: { userId },
     });
-
-    return todoList;
   }
 
   async deleteTodoId(todoId: number) {

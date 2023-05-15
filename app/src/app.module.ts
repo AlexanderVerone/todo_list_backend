@@ -6,7 +6,7 @@ import * as process from 'process';
 import { User } from './users/users.model';
 import { RolesModule } from './roles/roles.module';
 import { Role } from './roles/roles.model';
-import { UserRoles } from './roles/user-roles.model';
+import { UserRoles } from './roles/userRoles.model';
 import { AuthModule } from './auth/auth.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { TodosModule } from './todos/todos.module';

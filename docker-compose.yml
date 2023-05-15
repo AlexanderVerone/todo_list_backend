@@ -7,9 +7,9 @@ services:
       dockerfile: Dockerfile
       context: .
     env_file:
-      - .env
+      - ./app/.env
     volumes:
-      - .:/app
+      - ./app:/app
       - /app/node_modules
     ports:
       - "4000:4000"
@@ -21,7 +21,7 @@ services:
     container_name: database
     image: postgres:15.2
     env_file:
-      - .development.env
+      - ./app/.development.env
     environment:
       PG_DATA: /var/lib/postgresql/data
     ports:

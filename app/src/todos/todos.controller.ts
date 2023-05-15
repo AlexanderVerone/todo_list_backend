@@ -8,9 +8,9 @@ import {
   Post,
   UseGuards,
 } from '@nestjs/common';
-import { CreateTodoDto } from './dto/create-todo.dto';
+import { CreateTodoDto } from './dto/createTodo.dto';
 import { TodosService } from './todos.service';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { JwtAuthGuard } from '../auth/jwtAuth.guard';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Todo } from './todos.model';
 

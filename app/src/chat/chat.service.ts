@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Chat } from './chat.model';
-import { NewChatMessageDto } from './dto/new-chat-message.dto';
+import { NewChatMessageDto } from './dto/newChatMessage.dto';
 
 @Injectable()
 export class ChatService {

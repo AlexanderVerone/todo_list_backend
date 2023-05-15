@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { ChatService } from './chat.service';
-import { NewChatMessageDto } from './dto/new-chat-message.dto';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { NewChatMessageDto } from './dto/newChatMessage.dto';
+import { JwtAuthGuard } from '../auth/jwtAuth.guard';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Chat } from './chat.model';
 

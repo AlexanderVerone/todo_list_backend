@@ -25,6 +25,7 @@ export class TodosService {
     }
 
     await this.todoRepository.destroy({ where: { id: todoId } });
+
     return `Todo with id ${todoId} was deleted successfully`;
   }
 

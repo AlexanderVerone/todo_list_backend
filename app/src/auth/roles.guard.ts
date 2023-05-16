@@ -21,9 +21,11 @@ export class RolesGuard implements CanActivate {
       ROLES_KEY,
       [context.getHandler(), context.getClass()],
     );
+
     if (!requiredRoles) {
       return true;
     }
+
     const req = context.switchToHttp().getRequest();
 
     try {
@@ -39,6 +41,7 @@ export class RolesGuard implements CanActivate {
 
       const user = this.jwtService.verify(token);
       req.user = user;
+
       return user.roles.some((role) => requiredRoles.includes(role.value));
     } catch (e) {
       throw new HttpException('Нет доступа', HttpStatus.FORBIDDEN);

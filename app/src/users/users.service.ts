@@ -17,6 +17,7 @@ export class UsersService {
     const role = await this.roleService.getRoleByValue('USER');
     await user.$set('roles', [role?.id]);
     user.roles = [role];
+
     return user;
   }
 
@@ -37,6 +38,7 @@ export class UsersService {
 
     if (role && user) {
       await user.$add('role', role.id);
+
       return dto;
     }
 
@@ -54,6 +56,7 @@ export class UsersService {
     user.banned = true;
     user.banReason = dto.banReason;
     await user.save();
+
     return user;
   }
 }
